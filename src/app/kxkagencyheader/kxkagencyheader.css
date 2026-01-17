@@ -1,0 +1,15 @@
+.headerContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 32px;
+}
+
+.kxkHeaderLogo img{
+    height: 72px;
+}
+
+.kxkHeaderText a{
+    font-size: 1em;
+}

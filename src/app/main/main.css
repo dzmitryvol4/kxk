@@ -1,0 +1,13 @@
+.rotating-image {
+            width: 200px; /* Размер картинки */
+            height: auto;
+            animation-name: spin;
+            animation-duration: 4s; /* Скорость вращения */
+            animation-timing-function: linear; /* Линейная скорость вращения */
+            animation-iteration-count: infinite; /* Бесконечное повторение анимации */
+        }
+        
+        @keyframes spin {
+            from { transform: rotateZ(0deg); }
+            to   { transform: rotateZ(360deg); }
+        }
