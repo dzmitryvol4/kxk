@@ -1,2 +1,13 @@
 <app-kxkagencyheader></app-kxkagencyheader>
-<p>projects works!</p>
+
+<div class="textContainer">
+    <p>Мы — агентство коммуникационного дизайна и визуального воплощения.<br> Мы работаем на стыке гиперреалистичного 3D,<br> брендинга и реального производства.</p>
+</div>
+<div class="wrapper"> 
+    <div class="contentContainer">
+        @for (color of colors; track color) {
+            <div class="box" [style.backgroundColor]="color">
+            </div>
+        }
+    </div>
+</div>

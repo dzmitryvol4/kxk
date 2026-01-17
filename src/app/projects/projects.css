@@ -1,0 +1,26 @@
+.wrapper{
+    padding-top: 1vw;
+    height: 100vh;
+}
+
+.textContainer{
+    display: flex;
+    max-height: 130px;
+    width: 75vw;
+}
+
+.textContainer p{
+    font-size: 2vw;
+}
+
+.contentContainer{
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.box{
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+}
