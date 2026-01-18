@@ -1,10 +1,10 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, OnDestroy, OnInit } from '@angular/core';
 import { Kxkagencyheader } from '../kxkagencyheader/kxkagencyheader';
-import { ButtonModule } from 'primeng/button';
+import { HeaderData } from '../../services/headerData';
 
 @Component({
   selector: 'app-projects',
-  imports: [Kxkagencyheader, ButtonModule],
+  imports: [Kxkagencyheader],
   templateUrl: './projects.html',
   styleUrl: './projects.css',
   changeDetection: ChangeDetectionStrategy.OnPush,
@@ -14,10 +14,14 @@ export class Projects implements OnInit, OnDestroy{
 
   public filters = ['всё', 'amazon', 'айдентика', 'упаковка', 'иллюстрации', 'штрифт', 'ретушь', 'ии-аватары', 'дизайн музыки', 'книги']
 
-  constructor(private changeDetection: ChangeDetectorRef,){
+  public headerTitle:string = "kxk agency"
+  constructor(private changeDetection: ChangeDetectorRef,
+              public headerData: HeaderData
+  ){
     
   }
   ngOnInit(): void {
+
   }
 
   ngOnDestroy(): void {

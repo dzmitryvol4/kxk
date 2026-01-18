@@ -1,2 +1,10 @@
-<app-kxkagencyheader></app-kxkagencyheader>
-<p>about-us works!</p>
+<app-kxkagencyheader [header]="headerTitle"></app-kxkagencyheader>
+<div class="imageContainer">
+    <img src="assets/left.png" style="width: 10vh; height: 10vh;" (click)="navigateToLeft()">
+    <img src="assets/cubeGlass.png">
+    <img src="assets/right.png" style="width: 10vh; height: 10vh;" (click)="navigateToRight()">
+</div>
+
+<div class="textContainer">
+    <p>Мы — агентство коммуникационного дизайна <br>и визуального воплощения. Мы работаем на стыке гиперреалистичного 3D, брендинга и реального<br> производства.</p>
+</div>

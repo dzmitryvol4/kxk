@@ -1,17 +1,17 @@
 .imageContainer{
     display: flex;
     justify-content: space-between;
-    align-items: center;
-    height: 65vh;
+    padding-top: 27.5vh;
+    text-align: center;
 }
 
 .imageContainer img{
-    width: 65vh;
+    width: 10vh;
 }
 
 .textContainer{
     display: flex;
-    max-height: 200px;
+    flex-direction: column;
     width: 100vw;
 }
 
