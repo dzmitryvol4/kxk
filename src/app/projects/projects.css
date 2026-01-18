@@ -1,11 +1,10 @@
 .wrapper{
     padding-top: 1vw;
-    height: 100vh;
 }
 
 .textContainer{
     display: flex;
-    max-height: 130px;
+    max-height: 200px;
     width: 75vw;
 }
 
@@ -13,10 +12,35 @@
     font-size: 2vw;
 }
 
+.filterBlock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  width: 80vw; 
+}
+
+.glassButton {
+  backdrop-filter: blur(4.52339506149292px); /* Размытие фона */
+  filter: blur(0px); /* Нет размытия текста */
+  background: rgba(255, 255, 255, 0.01); /* Полупрозрачный фон */
+  color: white; 
+  padding: 10px 20px;
+  border-radius: 21px; 
+  transition: all 0.3s ease;
+  cursor: pointer;
+  font-size: 2vw;
+}
+
+.glassButton:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
 .contentContainer{
     display: grid;
     width: 100%;
     grid-template-columns: repeat(4, 1fr);
+    overflow: auto;
 }
 
 .box{

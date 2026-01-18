@@ -3,6 +3,15 @@
 <div class="textContainer">
     <p>Мы — агентство коммуникационного дизайна и визуального воплощения.<br> Мы работаем на стыке гиперреалистичного 3D,<br> брендинга и реального производства.</p>
 </div>
+
+<div class="filterBlock">
+    @for (filter of filters; track filter) {
+        <button class="glassButton">
+            {{ filter }}
+        </button>        
+    }
+</div>
+
 <div class="wrapper"> 
     <div class="contentContainer">
         @for (color of colors; track color) {
