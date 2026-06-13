@@ -1,16 +1,19 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Header } from './header/header';
-import { Main } from './main/main';
-import { AboutUs } from './about-us/about-us';
-import { Contact } from './contact/contact';
+import { ThemeChangedColorSevice } from '../services/themeChangedColor';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Main, AboutUs, Contact],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App {
   protected readonly title = signal('agency');
+  constructor(private themeChangedColorSevice: ThemeChangedColorSevice) {}
+
+  ngOnInit() {
+    // ВАЖНО: вызываем инициализацию темы при старте приложения
+    this.themeChangedColorSevice.initTheme();
+  }
 }
