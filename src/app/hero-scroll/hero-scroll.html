@@ -1,0 +1,52 @@
+<app-header></app-header>
+<!-- <div class="scrollContainer" (wheel)="onWheel($event)"> -->
+    <div class="contentWrapper" (wheel)="onWheel($event)">
+        
+        <!-- ЛЕВАЯ СТОРОНА - ТЕКСТ -->
+        <div class="leftSide">
+            <!-- Маленький текст (первый блок) -->
+            <div class="smallText" [class.hidden]="isSmallTextHidden">
+                <p noOrphan>Мы брендинговое агентство, которое создает айдентику и упаковку для малого и среднего бизнеса.</p>
+            </div>
+            
+            <!-- Большой текст (второй блок) -->
+            <div class="largeText" [class.visible]="isLargeTextVisible">
+                <div class="textBlock">
+                    <a class="sentence" [class.active]="sentenceIndex === 0" noOrphan>Наше агентство внимательно относится к вашим бизнес-целям.</a>
+                    <a class="sentence" [class.active]="sentenceIndex === 1" noOrphan>Каждый бренд обладает своим характером.</a>
+                    <a class="sentence" [class.active]="sentenceIndex === 2" noOrphan>Мы не создаем одинаковые цели.</a>
+                    <a class="sentence" [class.active]="sentenceIndex === 3" noOrphan>Нам важно сбалансировать уникальную композицию из целей бизнеса, ожиданий аудитории и амбиции.</a>
+                    <a class="sentence" [class.active]="sentenceIndex === 4" noOrphan>Как парфюмер создает аромат из десятков нот.</a>
+                    <a class="sentence" [class.active]="sentenceIndex === 5" noOrphan>Мы создаем бренд из десятков деталей, которые вместе формируют целостный и узнаваемый образ.</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- ПРАВАЯ СТОРОНА - КАРТИНКА -->
+        <div class="rightSide">
+            <div class="imageWrapper" 
+                [class.with-margin]="isImageMarginTop"
+                [class.scaled]="isImageScaled">
+                <div class="mediaSection">
+                    <div *ngIf="isLoading" class="skeletonWrapper">
+                        <p-skeleton width="100%" height="100%"></p-skeleton>
+                    </div>
+                    <img 
+                        *ngIf="!isLoading"
+                        [src]="imageUrl"
+                        class="heroImage"
+                        (load)="onImageLoad()"
+                    >
+                </div>
+            </div>
+        </div>
+        <!-- ЛОГОТИП 675KM ВНИЗУ СПРАВА -->
+        <div class="bottomLogo" [class.scrolled]="isLogoScaled">
+            <div class="logoWrapper">
+                <span class="logoNumber">675</span>
+                <span class="logoLetters">КМ</span>
+            </div>
+        </div>
+    </div>
+
+<!-- </div> -->

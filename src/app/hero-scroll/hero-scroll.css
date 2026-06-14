@@ -1,0 +1,264 @@
+.nowrap {
+    white-space: nowrap;
+}
+
+.wrap{
+    white-space: normal;
+}
+
+.scrollContainer {
+    width: 100%;
+    height: 0;
+    overflow: hidden;
+    position: relative;
+    background-color: inherit;
+}
+
+.contentWrapper {
+    display: flex;
+    width: 100%;
+    height: calc(100vh - 124px);
+    align-items: flex-start;
+    gap: 20px;
+    position: relative;
+    overflow: hidden;
+}
+
+.leftSide {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 0 clamp(20px, 5vw, 60px);
+    position: relative;
+    z-index: 10;
+    background-color: inherit;
+    padding-top: 0;
+    margin-top: 0;
+}
+
+.smallText {
+    position: fixed;  /* только это меняем */
+    max-width: 400px;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    margin-top: 0;
+    margin-left: clamp(120px, 18.2vw, 400px);
+}
+
+.smallText.hidden {
+    opacity: 0;
+    transform: translateY(-50px);  /* оставляем твой transform */
+    pointer-events: none;
+}
+
+.smallText p {
+    font-size: clamp(16px, 2vw, 24px);
+    line-height: 1.5;
+    margin-top: 0;
+}
+
+.largeText {
+    position: fixed;
+    left: 0;
+    width: 100%;
+    height: calc(100vh - 124px);
+    opacity: 0;
+    transform: translateY(100px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+    pointer-events: none;
+    z-index: 20;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 0 clamp(16px, 4vw, 32px);
+}
+
+.largeText.visible {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.textBlock {
+    width: 70%;
+    max-width: calc(70vw - 2rem);
+}
+
+.sentence {
+    font-size: clamp(40px, 4vw, 72px);
+    line-height: 0.95;
+    font-weight: 400;
+    margin: 0 0 0.2em 0;
+    transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+/* Неактивные предложения — серые/полупрозрачные */
+.sentence:not(.active) {
+    color: #999 !important;
+    opacity: 0.5;
+}
+
+/* Активное предложение — чёрное */
+.sentence.active {
+    color: #000 !important;
+    opacity: 1;
+}
+
+/* Тёмная тема */
+:host-context(body.dark-theme) .sentence:not(.active) {
+    color: #666 !important;
+}
+
+:host-context(body.dark-theme) .sentence.active {
+    color: #fff !important;
+}
+
+.rightSide {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    overflow: visible;
+    padding: 0;
+    margin: 0;
+    position: relative;
+    z-index: 1;
+}
+.imageWrapper {
+    width: 85%;
+    height: auto;
+    transition: transform 0.3s ease, margin-top 0.3s ease;
+    transform-origin: top right;
+    display: flex;
+    justify-content: flex-end;
+    position: relative;
+    z-index: 1;
+}
+
+/* Обычное состояние — без отступа, оригинальный размер */
+.imageWrapper {
+    margin-top: 0;
+    transform: scale(1);
+}
+
+/* Состояние после скролла — отступ и увеличение */
+.imageWrapper.with-margin {
+    margin-top: 8%;
+}
+
+.imageWrapper.scaled {
+    transform: scale(1.5);  /* финальный размер */
+}
+
+.heroImage {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    display: block;
+    margin-top: 0;
+    pointer-events: none;
+}
+
+.bottomLogo {
+    position: absolute;
+    bottom: clamp(30px, 5vh, 60px);
+    right: clamp(30px, 5vw, 60px);
+    width: 70%;
+    max-width: calc(70vw - 2rem);
+    transition: opacity 0.3s ease, transform 0.3s ease, scale 0.3s ease;
+    z-index: 15;
+    /* всегда виден, без opacity */
+}
+
+.logoWrapper {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+    gap: 4px;
+    transition: transform 0.3s ease;
+}
+
+.logoNumber {
+    font-size: clamp(250px, 24vw, 500px);
+    font-weight: 400;
+    letter-spacing: 1rem;
+    line-height: 0.9;
+    transition: font-size 0.3s ease;
+}
+
+.logoLetters {
+    font-size: clamp(48px, 8vw, 120px);
+    font-weight: 600;
+    letter-spacing: clamp(2px, 0.5vw, 4px);
+    margin-bottom: 0.2em;
+    line-height: 1;
+    transition: font-size 0.3s ease, margin-bottom 0.3s ease;
+}
+
+/* При скролле логотип уменьшается */
+.bottomLogo.scrolled .logoNumber {
+    font-size: clamp(50px, 12vh, 100px);
+}
+
+.bottomLogo.scrolled .logoLetters {
+    font-size: clamp(50px, 12vh, 100px);
+    margin-bottom: 0.3em;
+}
+
+.bottomLogo.scrolled {
+    z-index: 1;  /* уходит под картинку */
+}
+:host-context(body.light-theme) {
+    .scrollContainer { background-color: #ffffff; }
+    .smallText p, .largeText p { color: #333333; }
+    .logoNumber, .logoLetters { color: #000000; }
+}
+
+:host-context(body.dark-theme) {
+    .scrollContainer { background-color: #1a1a1a; }
+    .smallText p, .largeText p { color: #e0e0e0; }
+    .logoNumber, .logoLetters { color: #ffffff; }
+}
+
+@media (max-width: 768px) {
+    .contentWrapper {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 40px;
+    }
+    
+    .leftSide, .rightSide {
+        min-height: auto;
+        padding: 20px;
+    }
+    
+    .smallText {
+        margin-left: 0;
+        text-align: center;
+    }
+    
+    .largeText {
+        top: 80px;
+        height: calc(100vh - 80px);
+        padding: 0 20px;
+        padding-top: 30px;
+    }
+    
+    .largeText p {
+        width: 100%;
+        font-size: clamp(20px, 5vw, 32px);
+    }
+    
+    .imageWrapper {
+        width: 100%;
+        justify-content: center;
+    }
+    
+    .bottomLogo {
+        bottom: 20px;
+        right: 20px;
+    }
+    
+    .logoNumber { font-size: 48px; }
+    .logoLetters { font-size: 32px; }
+}

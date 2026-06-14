@@ -31,7 +31,7 @@
         .menu-list {
             list-style-type: none;
             display: flex;
-            gap: clamp(40px, 8vw, 90px);
+            gap: clamp(80px, 7vw, 180px);
             margin: 0;
             padding: 0;
             justify-content: center;

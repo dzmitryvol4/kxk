@@ -1,10 +1,11 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Kxkagencyheader } from '../../kxkagencyheader/kxkagencyheader';
 import { Router } from '@angular/router';
+import { Header } from "../../header/header";
 
 @Component({
   selector: 'app-wwd',
-  imports: [Kxkagencyheader],
+  imports: [Kxkagencyheader, Header],
   templateUrl: './wwd.html',
   styleUrl: './wwd.css',
 })

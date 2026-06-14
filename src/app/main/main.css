@@ -1,13 +1,112 @@
-.rotating-image {
-            width: 200px; /* Размер картинки */
-            height: auto;
-            animation-name: spin;
-            animation-duration: 4s; /* Скорость вращения */
-            animation-timing-function: linear; /* Линейная скорость вращения */
-            animation-iteration-count: infinite; /* Бесконечное повторение анимации */
-        }
-        
-        @keyframes spin {
-            from { transform: rotateZ(0deg); }
-            to   { transform: rotateZ(360deg); }
-        }
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.mediaSection {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.skeletonWrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.heroImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.contentArea {
+    flex: 1;
+    position: relative;
+    z-index: 1;
+}
+
+.aboutContainer {
+    width: 100%;
+    padding-top: clamp(20px, 4vw, 80px);
+    padding-left: clamp(20px, 4vw, 80px);
+    display: flex;
+    justify-content: center;
+}
+
+.aboutContent {
+    width: 100%;
+}
+
+.mainTitle {
+    font-size: clamp(28px, 3vw, 48px);
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: clamp(16px, 1vw, 20px);
+}
+
+.accent {
+    font-weight: 400;
+    font-size: clamp(46px, 8vw, 82px);
+    line-height: 97%;
+
+}
+
+.divider {
+    width: clamp(40px, 3vw, 60px);
+    height: 3px;
+    margin: clamp(20px, 2vw, 40px) 0;
+}
+
+.processText {
+    font-weight: 400;
+    font-size: clamp(46px, 8vw, 82px);
+    line-height: 97%;
+    margin-left: 30vw;
+}
+
+.badgeWrapper {
+    margin: clamp(16px, 2vw, 30px) 0 clamp(8px, 1vw, 10px);
+}
+
+.badge {
+    display: inline-block;
+    font-size: clamp(12px, 1vw, 14px);
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+}
+
+.ctaText {
+    font-size: clamp(18px, 1vw, 24px);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-top: clamp(8px, 1vw, 10px);
+}
+
+.textColorBBBB{
+    color: #BBBBBB;
+}
+
+@media (max-width: 768px) {
+    .aboutContainer {
+        padding: 32px 20px;
+    }
+    
+    .divider {
+        width: 40px;
+    }
+}

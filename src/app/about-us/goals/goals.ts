@@ -9,8 +9,8 @@ import { Kxkagencyheader } from '../../kxkagencyheader/kxkagencyheader';
   styleUrl: './goals.css',
 })
 export class Goals implements OnInit, OnDestroy{
-
   public headerTitle:string = "Наши ценности";
+  
   constructor(private router:Router){
 
   }
@@ -30,4 +30,5 @@ export class Goals implements OnInit, OnDestroy{
   public navigateToRight(){
     this.router.navigate(["about"])
   }
+
 }
