@@ -1,2 +1,77 @@
-<app-kxkagencyheader></app-kxkagencyheader>
-<p>contact works!</p>
+<app-header></app-header>
+
+<div class="contactContainer">
+    <div class="formColumn">
+        <h3>Обсудить проект</h3>
+        
+        <form (ngSubmit)="onSubmit()" #contactForm="ngForm">
+            <div class="formGroup">
+                <input 
+                    type="text" 
+                    placeholder="Имя"
+                    [(ngModel)]="formData.name" 
+                    name="name" 
+                    required>
+            </div>
+            
+            <div class="formGroup">
+                <input 
+                    type="text" 
+                    placeholder="TG @"
+                    [(ngModel)]="formData.telegram" 
+                    name="telegram">
+            </div>
+            
+            <div class="formRow">
+                <div class="formGroup half">
+                    <input 
+                        type="email" 
+                        placeholder="Почта"
+                        [(ngModel)]="formData.email" 
+                        name="email" 
+                        required>
+                </div>
+                <div class="formGroup half">
+                    <input 
+                        type="tel" 
+                        placeholder="Телефон"
+                        [(ngModel)]="formData.phone" 
+                        name="phone">
+                </div>
+            </div>
+            
+            <div class="formGroup">
+                <textarea 
+                    placeholder="Расскажите о Вашем проекте"
+                    rows="5"
+                    [(ngModel)]="formData.project" 
+                    name="project" 
+                    required></textarea>
+            </div>
+            
+            <button type="submit" class="submitBtn" [disabled]="contactForm.invalid || isSubmitting">
+                {{ isSubmitting ? 'Отправка...' : 'Отправить' }}
+            </button>
+        </form>
+    </div>
+    
+    <div class="infoColumn">
+        <div class="workHours">
+            <h3>Время работы</h3>
+            <p>пн-пт 10:00 - 19:00</p>
+        </div>
+        
+        <div class="contacts">
+            <h3>Связаться с нами</h3>
+            <div class="contactItem">
+                <span class="email">hello@675km.com</span>
+            </div>
+            <div class="contactItem">
+                <span class="phone">+79254222515</span>
+            </div>
+            <div class="contactItem">
+                <span class="phone">+79377681996</span>
+            </div>
+        </div>
+    </div>
+</div>

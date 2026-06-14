@@ -44,4 +44,8 @@ export class Header implements OnInit, OnDestroy{
     this.langChanges = this.langChanges === "ru" ? "en" : "ru";
   }
 
+  navigateToMain(): void{
+    this.router.navigate(["/main"])
+  }
+
 }
